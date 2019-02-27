@@ -1,2 +1,49 @@
-<app-server-component></app-server-component>
-<app-server-component></app-server-component>
+<!-- -------------------- NEW USER SECTION ----------------- -->
+
+<!-- Form Label -->
+<br />
+<label>New Server</label>
+<br />
+<!-- Two Way Bound User Input form -->
+<input type="text" class="form-control" [(ngModel)]="newServerName" />
+
+<!-- <h2>Username: {{ newUsername }}</h2> -->
+
+<h2 *ngIf="serverCreated">
+  Server was created, server is {{ newServerName }}.
+</h2>
+<br />
+
+<!-- [disabled]="!allowNewName" -->
+<button
+  [disabled]="newServerName === ''"
+  (click)="onCreateServer()"
+  class="btn btn-danger createServer"
+>
+  Add server
+</button>
+<br />
+<br />
+
+<app-server-component *ngFor="let server of servers"></app-server-component>
+
+<!-- Display Details button -->
+<!-- toggle dispalying content with button created  -->
+<!-- log button clicks in an array -->
+<!-- h3 tag with any content of your choice -->
+<!-- output array below h3 content -->
+
+<hr />
+<hr />
+
+<button (click)="toggleContent()" class="btn btn-primary">
+  Display Details!
+</button>
+
+<h2 *ngIf="showDetails">
+  {{ details }}
+</h2>
+
+<div *ngFor="let click of butClicks" [ngStyle]="{ backgroundColor: getColor() }">
+  {{ click }}
+</div>
