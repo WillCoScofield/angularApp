@@ -14,7 +14,7 @@ export class ServersComponent implements OnInit {
   userNameCreated = false;
   serverCreated = false;
   servers = ["TesterServer", "AnotherTester", "OneMoreServer"];
-  butClicks = ["FirstClick", "SecondClick"];
+  butClicks = [];
   details = "Let the Big Dawg Eat";
   showDetails = false;
   counter = 0;
@@ -51,19 +51,6 @@ export class ServersComponent implements OnInit {
     } else {
       this.showDetails = true;
     }
-    this.butClicks.push(this.newClick);
-    // console.log(this.butClicks)
+    this.butClicks.push(new Date());
   }
-
-  getColor(){
-    console.log(this.butClicks.length)
-    if (this.butClicks.length >= 5){
-      return "red";
-    }
-    else return 'transparent'
-  }
-
-
-
-
 }
